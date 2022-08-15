@@ -15,6 +15,9 @@ function getComputerChoice() {
 
 let computerWinTotal= 0;
 let playerWinTotal = 0;
+let playerSelection;
+let computerSelection;
+
 
 //function to play a round 
 function playRound (playerSelection, computerSelection) {
@@ -64,13 +67,8 @@ function playRound (playerSelection, computerSelection) {
 }
 
 
-let playerSelection;
-let computerSelection;
-/*testing computerSelection
-console.log(computerSelection)
-console.log(playRound(playerSelection, computerSelection))*/
 
-
+//function to start the game - announces winner of 5 rounds
 function game() {
     for (let i = 0; i<5; i++) {
         playerSelection = prompt("Type \"Rock\", \"Paper\", or \"Scissor\"")   
