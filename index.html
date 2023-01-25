@@ -4,26 +4,67 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rock Paper Scissor</title>
   </head>
   <body>
     <header>
       <h1>The Ultimate Rock, Paper, Scissor Can you beat the computer?</h1>
-      <h2>My money says... you may or may not! (50% chance)</h2>
+      <h2>My money says... you may or may not! (eh.. 50% chance)</h2>
     </header>
     <div class="body">
-      <div class="total">Choose your weapon!</div>
-      <p>Round number 1!</p>
-      <img src="img.jpg" alt="Rock" />
-      <img src="img.jpg" alt="Paper" />
-      <img src="img.jpg" alt="Scissor" />
+      <div class="round">Round number 1!!!</div>
+      <p>Choose your weapon!</p>
+      <div class="choices">
+        <img src="img/rock.jpeg" class="rock" alt="Rock" />
+        <img src="img/paper.png" class="paper" alt="Paper" />
+        <img src="img/scissor.jpg" class="scissor" alt="Scissor" />
+      </div>
       <div class="score">
-        <div class="you">YOU</div>
-        <div class="you" "youscore">?</div>
-        <div class="you">Robot</div>
-        <p>?</p>
+        <div class="you">
+          YOU
+          <div class="you your-score">?</div>
+        </div>
+
+        <div class="robot">
+          Robot
+          <div class="robot robot-score">?</div>
+        </div>
       </div>
     </div>
+
+    <style>
+      * {
+        background-color: black;
+        color: white;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      body {
+        text-align: center;
+      }
+
+      .choices {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 80px;
+      }
+
+      img {
+        width: 200px;
+      }
+
+      .score {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+        gap: 50px;
+      }
+    </style>
     <script src="script.js"></script>
   </body>
 </html>

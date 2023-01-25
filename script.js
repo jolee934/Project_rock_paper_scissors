@@ -1,4 +1,15 @@
 
+
+// Create variables
+const choices = document.querySelector(".choices")
+const rock = document.querySelector(".rock")
+const paper = document.querySelector(".scissor")
+const scissor = document.querySelector(".paper")
+const playerScore = document.querySelector(".your-score")
+const robotScore = document.querySelector(".robot-score")
+const round = document.querySelector(".round")
+
+
 //function to return a Computer's choice of R, P, S randomly
 function getComputerChoice() {
     let choice;
@@ -15,56 +26,92 @@ function getComputerChoice() {
 
 let computerWinTotal= 0;
 let playerWinTotal = 0;
+let gameRound = 0;
 let playerSelection;
 let computerSelection;
+let rockChosen = false;
+let paperChosen = false;
+let scissorChosen = false;
 
 
 //function to play a round 
-function playRound (playerSelection, computerSelection) {
+function playRound () {
     //note: this converts playerSection to uppercase to make comparison case insensitive
-    let outcome;
     
-    if (playerSelection.toUpperCase() === "ROCK") {
+    computerSelection = getComputerChoice();
+    gameRound++;
+    
+    round.textContent = gameRound;
+
+    console.log(`computer selection is ${computerSelection}`);
+    console.log(`rock is ${rockChosen}`);
+    console.log(`paper is ${paperChosen}`);
+    console.log(`scissor is ${scissorChosen}`);
+    
+    if (rockChosen === true) {
         if (computerSelection.toUpperCase() === "PAPER") {
             computerWinTotal++;
-            return "You Lose! Paper beats Rock"
+            console.log( "You Lose! Paper beats Rock")
+            robotScore.textContent = computerWinTotal;
         }
         else if (computerSelection.toUpperCase() === "SCISSOR") {
             playerWinTotal++;
-            return "You Win! Rock beats Scissor"
+            console.log("You Win! Rock beats Scissor")
+            playerScore.textContent =  playerWinTotal;
         }
         else if (computerSelection.toUpperCase() === "ROCK") {
-            return "You Tie!"
+            console.log("You Tie!")
         }
-    }   else if (playerSelection.toUpperCase() === "PAPER") {
-        if (computerSelection.toUpperCase() === "SCISSOR") {
-            computerWinTotal++;
-            return "You Lose! Scissor beats Paper"
+    // }   else if (playerSelection.toUpperCase() === "PAPER") {
+    //     if (computerSelection.toUpperCase() === "SCISSOR") {
+    //         computerWinTotal++;
+    //         return "You Lose! Scissor beats Paper"
+    //     }
+    //     else if (computerSelection.toUpperCase() === "ROCK") {
+    //         playerWinTotal++;
+    //         return "You Win! Paper beats Scissor"
+    //     }
+    //     else if (computerSelection.toUpperCase() === "PAPER") {
+    //         return "You Tie!"
+    //    }
+    // } else if (playerSelection.toUpperCase() === "SCISSOR") {
+    //     if (computerSelection.toUpperCase() === "ROCK") {
+    //         computerWinTotal++;
+    //         return "You Lose! Rock beats Scissor"
+    //     }
+    //     else if (computerSelection.toUpperCase() === "PAPER") {
+    //         playerWinTotal++;
+    //         return "You Win! Scissor beats Paper"
+    //     }
+    //     else if (computerSelection.toUpperCase() === "SCISSOR") {
+    //         return "You Tie!"
+    //    }
+
+    //When Game round hits 5, reset game and show winner
+    rockChosen = false;
+    paperChosen = false;
+    scissorChosen = false;
+
+
+    console.log(`game round is ${gameRound}`)
+    if (gameRound === 5) {
+        if (playerWinTotal > computerWinTotal) {
+            console.log("You beat the robot!")
         }
-        else if (computerSelection.toUpperCase() === "ROCK") {
-            playerWinTotal++;
-            return "You Win! Paper beats Scissor"
+        if (playerWinTotal < computerWinTotal) {
+            console.log("You lost to the robot!")
         }
-        else if (computerSelection.toUpperCase() === "PAPER") {
-            return "You Tie!"
-       }
-    } else if (playerSelection.toUpperCase() === "SCISSOR") {
-        if (computerSelection.toUpperCase() === "ROCK") {
-            computerWinTotal++;
-            return "You Lose! Rock beats Scissor"
-        }
-        else if (computerSelection.toUpperCase() === "PAPER") {
-            playerWinTotal++;
-            return "You Win! Scissor beats Paper"
-        }
-        else if (computerSelection.toUpperCase() === "SCISSOR") {
-            return "You Tie!"
-       }
+        else {console.log("You tied. Oh well. Try again. Or not. ")}
+        gameRound = 0;
     }
-
-
-   
+    }  
 }
+
+choices.addEventListener("click", playRound);
+rock.addEventListener("click", () => rockChosen = true)
+paper.addEventListener("click", () => paperChosen = true)
+scissor.addEventListener("click", () => scissorChosen = true)
+
 
 
 
