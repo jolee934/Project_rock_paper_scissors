@@ -1,5 +1,5 @@
 
-//function to return a Computer's choice of R, P, S randomly
+//function to return a Computer's choice of R, P, S randomly - haven't learned arrays yet so using random numbers
 function getComputerChoice() {
     let choice;
     let randomNumber = Math.floor(Math.random()*3);
@@ -19,7 +19,6 @@ let playerSelection;
 let computerSelection;
 
 
-//function to play a round 
 function playRound (playerSelection, computerSelection) {
     //note: this converts playerSection to uppercase to make comparison case insensitive
     let outcome;
@@ -73,7 +72,7 @@ function game() {
     for (let i = 0; i<5; i++) {
         playerSelection = prompt("Type \"Rock\", \"Paper\", or \"Scissor\"")   
         computerSelection = getComputerChoice(); 
-        console.log(computerSelection)    
+        //console.log(computerSelection)    
         console.log(playRound(playerSelection, computerSelection))
     }
     if (playerWinTotal > computerWinTotal) {
