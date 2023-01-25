@@ -70,12 +70,12 @@ function playRound (playerSelection, computerSelection) {
 
 //function to start the game - announces winner of 5 rounds
 function game() {
-    for (let i = 0; i<5; i++) {
+    // for (let i = 0; i<5; i++) {
         playerSelection = prompt("Type \"Rock\", \"Paper\", or \"Scissor\"")   
         computerSelection = getComputerChoice(); 
         console.log(computerSelection)    
         console.log(playRound(playerSelection, computerSelection))
-    }
+    // }
     if (playerWinTotal > computerWinTotal) {
         console.log(`You won! You scored ${playerWinTotal} and the computer scored ${computerWinTotal}`)
     } else if (computerWinTotal > playerWinTotal) {
